@@ -16,7 +16,6 @@ const logIn = (user) => {
   userName.style.display = "flex";
   userName.textContent = user.login;
   modalAuth.style.display = "none";
-  console.log(user.password);
 };
 
 //выход из аккаунта
