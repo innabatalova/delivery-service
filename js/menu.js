@@ -5,6 +5,15 @@ const cardInfo = document.querySelector(".card-info");
 const changeTitle = (restaurant) => {
   const restaurantTitle = document.querySelector(".restaurant-title");
   restaurantTitle.textContent = restaurant.name;
+
+  const restaurantRating = document.querySelector(".rating");
+  restaurantRating.textContent = restaurant.stars;
+
+  const restaurantPrice = document.querySelector(".price");
+  restaurantPrice.textContent = `От ${restaurant.price} ₽`;
+
+  const restaurantCategory = document.querySelector(".category");
+  restaurantCategory.textContent = restaurant.kitchen;
 };
 
 const renderItems = (data) => {
