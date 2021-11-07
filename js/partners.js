@@ -39,9 +39,16 @@ const renderItems = (data) => {
     a.addEventListener("click", (e) => {
       e.preventDefault(); //отмена стандартного поведения при клике
 
-      localStorage.setItem("restaurant", JSON.stringify(item)); //сохранение в памяти localStorage
+      //проверка, введен ли логин
+      const userLoginCheck = document.querySelector(".user-name");
 
-      window.location.href = "/restaurant.html"; //переход на страницу, сохр в localStorage
+      if (!(userLoginCheck.innerText === "")) {
+        localStorage.setItem("restaurant", JSON.stringify(item)); //сохранение в памяти localStorage
+
+        window.location.href = "/restaurant.html"; //переход на страницу, сохр в localStorage
+      } else {
+        modalAuth.style.display = "flex"; //открыть окно авторизации
+      }
     });
 
     cardsRestaurants.append(a); //динамическое выведение созданных <а> в контейнер
