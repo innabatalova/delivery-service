@@ -3,6 +3,10 @@ const menu = () => {
 
   const cardInfo = document.querySelector(".card-info");
 
+  const cartArray = localStorage.getItem("cart") //массив для добавления в корзину
+    ? JSON.parse(localStorage.getItem("cart")) //если истина - передать значение
+    : []; //если ложь - пустой массив
+
   const changeTitle = (restaurant) => {
     const restaurantTitle = document.querySelector(".restaurant-title");
     restaurantTitle.textContent = restaurant.name;
@@ -15,6 +19,23 @@ const menu = () => {
 
     const restaurantCategory = document.querySelector(".category");
     restaurantCategory.textContent = restaurant.kitchen;
+  };
+
+  const addToCart = (cartItem) => {
+    if (cartArray.some((item) => item.id === cartItem.id)) {
+      //метод some проверяет есть ли уже в массиве элемент с таким id
+      cartArray.map((item) => {
+        if (item.id === cartItem.id) {
+          //метод map проверяет есть ли элемент с таким Id и добавляет счетчик
+          item.count++;
+        }
+        return item;
+      });
+    } else {
+      cartArray.push(cartItem); //добавление элемента в массив
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cartArray)); //добавление элемента в локальную память
   };
 
   const renderItems = (data) => {
@@ -45,6 +66,19 @@ const menu = () => {
         </div>
       </div>        
     `;
+
+      card.querySelector(".button-card-text").addEventListener("click", () => {
+        //сокращение от полей ниже
+        addToCart({ name, price, id, count: 1 });
+
+        // const cartItem = {    //все это сокращено см. выше
+        //   name: name,
+        //   price: price,
+        //   count: 1,
+        // };
+
+        // addToCart(cartItem);
+      });
 
       cardsMenu.append(card);
     });
