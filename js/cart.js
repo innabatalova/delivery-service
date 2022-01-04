@@ -4,6 +4,12 @@ const cart = () => {
   const close = modalCart.querySelector(".close"); //получение по селектору, но внутри указанного блока
   const modalBody = modalCart.querySelector(".modal-body");
   const buttonSend = modalCart.querySelector(".button-primary");
+  const clearCart = modalCart.querySelector(".clear-cart");
+
+  //очистка корзины при клике по кнопке "Отмена"
+  clearCart.addEventListener("click", () => {
+    resetCart();
+  });
 
   //очистка корзины после отправки заказа
   const resetCart = () => {
