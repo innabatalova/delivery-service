@@ -5,6 +5,26 @@ const cart = () => {
   const modalBody = modalCart.querySelector(".modal-body");
   const buttonSend = modalCart.querySelector(".button-primary");
   const clearCart = modalCart.querySelector(".clear-cart");
+  const modalPricetag = modalCart.querySelector(".modal-pricetag");
+
+  //подсчет и динамический вывод суммы в корзине
+  const renderPrice = () => {
+    const getDataCart = JSON.parse(localStorage.getItem("cart"));
+
+    const resultsPrice = getDataCart.map(function (num) {
+      return num.price * num.count;
+    });
+
+    const summPrice = resultsPrice.reduce(function (sum, current) {
+      return sum + current;
+    });
+
+    modalPricetag.innerHTML = `
+          <span class="food-name">${summPrice} ₽</span>
+      `;
+  };
+
+  renderPrice();
 
   //очистка корзины при клике по кнопке "Отмена"
   clearCart.addEventListener("click", () => {
@@ -69,8 +89,10 @@ const cart = () => {
     e.preventDefault();
     if (e.target.classList.contains("btn-dec")) {
       decrementCount(e.target.dataset.index);
+      renderPrice();
     } else if (e.target.classList.contains("btn-inc")) {
       incrementCount(e.target.dataset.index);
+      renderPrice();
     }
   });
 
