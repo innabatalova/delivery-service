@@ -116,8 +116,8 @@ button {
     width: 24px;
     height: 24px;
     background-color: #fff;
-    -webkit-mask: url("../img/icon/user.svg") no-repeat 50% 50%;
-    mask: url("../img/icon/user.svg") no-repeat 50% 50%;
+    //-webkit-mask: url("../img/icon/user.svg") no-repeat 50% 50%;
+    //mask: url("../img/icon/user.svg") no-repeat 50% 50%;
     background-repeat: no-repeat;
 }
 
@@ -129,8 +129,8 @@ button {
     width: 24px;
     height: 24px;
     background-color: #595959;
-    -webkit-mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
-    mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
+    //-webkit-mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
+    //mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
     background-repeat: no-repeat;
 }
 
@@ -156,6 +156,12 @@ button {
     margin: 0 5px;
 }
 
+.button-out-svg {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+}
+
 .user-name {
     display: none;
     margin-right: 20px;
@@ -177,28 +183,13 @@ button {
     margin-bottom: 56px;
 }
 
-.pizza {
-    background: #fff1b8 url(../img/promo/pizza.png) no-repeat top -100px right -250px / 830px
-}
-
-.kebab {
-    background: #D6E4FF url(../img/promo/kebab.png) no-repeat top 45px right 40px / 450px;
-}
-
-.vegetables {
-    background: #FFF566 url(../img/promo/vegetables.png) no-repeat top 0 right 0 / 825px
-}
-
-.sushi {
-    background: #FFF1F0 url(../img/promo/sushi.png) no-repeat top 10px right 15px / 500px
-}
-
 .promo-title {
     font-style: normal;
     font-weight: bold;
     font-size: 39px;
     line-height: 46px;
     color: #302c34;
+    width: 40%;
 }
 
 .promo-text {
@@ -322,9 +313,6 @@ button {
 }
 
 .rating {
-    background-image: url("../img/icon/rating.svg");
-    background-repeat: no-repeat;
-    background-position: 0 7px;
     padding-left: 20px;
     margin-right: 26px;
     color: #ffc107;
@@ -799,17 +787,6 @@ button {
         min-height: 40px;
         padding: 5px 12px;
 
-    }
-
-    .button-out-svg {
-        width: 24px;
-        height: 24px;
-        background-color: #fff;
-        -webkit-mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
-        mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
-        background-repeat: no-repeat;
-        -webkit-mask-size: 20px;
-        mask-size: 20px;
     }
 
     .promo {

@@ -3,6 +3,9 @@ import React from 'react'
 import HeaderButton from '../HeaderButton/HeaderButton';
 
 import Logo from "../../img/icon/logo.svg";
+import User from "../../img/icon/user.svg";
+import ShoppingCart from "../../img/icon/shopping-cart.svg";
+import Logout from "../../img/icon/logout.svg";
 
 const Header = () => {
   return (
@@ -20,13 +23,13 @@ const Header = () => {
       <div class="buttons">
         <span class="user-name"></span>
         <HeaderButton classNameBtn='button button-primary button-auth'
-          classNameValue='button-auth-svg' classNameText='button-text' TextBtn='Войти' />
+          classNameValue='button-auth-svg' classNameText='button-text' TextBtn='Войти' HeaderBtnIcon={User}/>
 
         <HeaderButton id="cart-button" classNameBtn='button button-cart'
-          classNameValue='button-cart-svg' classNameText='button-text' TextBtn='Корзина' />
+          classNameValue='button-cart-svg' classNameText='button-text' TextBtn='Корзина' HeaderBtnIcon={ShoppingCart}/>
 
         <HeaderButton classNameBtn='button button-primary button-out'
-          classNameValue='button-text' classNameText='button-out-svg' TextBtn='Выйти' />
+          classNameValue='button-out-svg' classNameText='button-text' TextBtn='Выйти' HeaderBtnIcon={Logout}/>
       </div>
     </header>
   )
