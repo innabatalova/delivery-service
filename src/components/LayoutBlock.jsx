@@ -1,9 +1,11 @@
 import React from 'react'
 
 import Header from './HeaderBlock/Header'
-import MainBlock from './MainBlock/MainBlock'
+//import MainBlock from './MainBlock/MainBlock'
+import MenuBlock from './MenuBlock/MenuBlock'
 import FooterBlock from './FooterBlock/FooterBlock'
 import ModalCart from './ModalCart/ModalCart'
+import ModalAuth from './ModalAuth/ModalAuth'
 
 const LayoutBlock = () => {
   return (
@@ -12,11 +14,11 @@ const LayoutBlock = () => {
         <Header />
       </div>
       <main className="main">
-        <MainBlock />
+        <MenuBlock restaurantTitle='Пицца Плюс' restaurantRating='4.5' restaurantPrice='От 900 ₽' restaurantCategory='Пицца'/>
       </main>
       <FooterBlock />
       <ModalCart />
-      <div className="modal-auth">modal-auth</div>
+      <ModalAuth />
     </>
   )
 }

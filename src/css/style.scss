@@ -238,6 +238,12 @@ button {
 
 }
 
+.card:hover, .card:active, .card:focus{
+    box-shadow: 10px 30px 40px rgba(0, 0, 0, 0.04);
+    transform: scale(1.03);
+    transition: all 0.3s ease-out;
+}
+
 .card-restaurant {
     cursor: pointer
 }
