@@ -25,7 +25,7 @@ const MainBlock = () => {
   return (
     <div class="container">
 
-      <section class="container-promo">
+      <section className="container-promo">
         <PromoBunner promoClass='pizza' stylePromoBG={stylePromoPizza}
           promoTitle={'Онлайн-сервис доставки еды на дом'}
           promoText='Блюда из любимого ресторана привезет курьер в перчатках, маске и с
@@ -44,20 +44,20 @@ const MainBlock = () => {
           promoText='Скидки на сеты до 30 мая по промокоду DADADA'/>
       </section>
 
-      <section class="restaurants">
+      <section className="restaurants">
 
-        <div class="section-heading">
-          <h2 class="section-title">Рестораны</h2>
-          <label class="search">
+        <div className="section-heading">
+          <h2 className="section-title">Рестораны</h2>
+          <label className="search">
             <input
               type="text"
-              class="input input-search"
+              className="input input-search"
               placeholder="Поиск блюд и ресторанов"
             />
           </label>
         </div>
 
-        <div class="cards cards-restaurants">
+        <div className="cards cards-restaurants">
 
           <CardRestaurant imgCardProps={PizzaPreview} cardTitle='Пицца плюс' cardTag='50 мин' 
             cardRating='4.5' cardPrice='От 900 ₽' cardCategory='Пицца'/>

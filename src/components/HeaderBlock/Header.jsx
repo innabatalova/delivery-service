@@ -10,18 +10,18 @@ import Logout from "../../img/icon/logout.svg";
 const Header = () => {
   return (
     <header className="header">
-      <a class="logo">
-        <img alt="Logo" class="logo__img" src={Logo}/>
+      <a className="logo">
+        <img alt="Logo" className="logo__img" src={Logo}/>
       </a>
-      <label class="address">
+      <label className="address">
         <input
           type="text"
-          class="input input-address"
+          className="input input-address"
           placeholder="Адрес доставки"
         />
       </label>
-      <div class="buttons">
-        <span class="user-name"></span>
+      <div className="buttons">
+        <span className="user-name"></span>
         <HeaderButton classNameBtn='button button-primary button-auth'
           classNameValue='button-auth-svg' classNameText='button-text' TextBtn='Войти' HeaderBtnIcon={User}/>
 
