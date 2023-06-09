@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Auth from '../../controllers/auth'
+
 const ModalAuth = () => {
   return (
     <div class="modal-auth">
       <div class="modal-dialog modal-dialog-auth">
-        <button class="close-auth">&times;</button>
-        <form id="logInForm">
+        <button class="close-auth" onClick={Auth.closeAuth}>&times;</button>
+        <form id="logInForm" onSubmit={Auth.logIn} >
           <fieldset class="modal-body">
             <legend class="modal-title">Авторизация</legend>
             <label class="label-auth">

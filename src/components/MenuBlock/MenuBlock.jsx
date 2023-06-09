@@ -11,20 +11,20 @@ import pizzaClassic from '../../img/pizza-plus/pizza-classic.jpg'
 
 const MenuBlock = ({ restaurantTitle, restaurantRating, restaurantPrice, restaurantCategory }) => {
   return (
-    <div class="container">
+    <div className="container">
 
-      <section class="menu">
+      <section className="menu">
 
-        <div class="section-heading">
-          <h2 class="section-title restaurant-title">{restaurantTitle}</h2>
-          <div class="card-info">
-            <div class="rating">{restaurantRating}</div>
-            <div class="price">{restaurantPrice}</div>
-            <div class="category">{restaurantCategory}</div>
+        <div className="section-heading">
+          <h2 className="section-title restaurant-title">{restaurantTitle}</h2>
+          <div className="card-info">
+            <div className="rating">{restaurantRating}</div>
+            <div className="price">{restaurantPrice}</div>
+            <div className="category">{restaurantCategory}</div>
           </div>
         </div>
 
-        <div class="cards cards-menu">
+        <div className="cards cards-menu">
 
           <MenuCard MenuCardImg={pizzaVesuvius} MenuCardTitle='Пицца Везувий' MenuCardInfo='Соус томатный, сыр «Моцарелла», ветчина, пепперони, перец
                   «Халапенье», соус «Тобаско», томаты.' MenuCardPrice='545 ₽'/>

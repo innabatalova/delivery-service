@@ -8,6 +8,7 @@ import ModalCart from './ModalCart/ModalCart'
 import ModalAuth from './ModalAuth/ModalAuth'
 
 const LayoutBlock = () => {
+
   return (
     <>
       <div className="container">

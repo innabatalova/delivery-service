@@ -7,25 +7,25 @@ const MenuCard = ({ MenuCardImg, MenuCardTitle, MenuCardInfo, MenuCardPrice}) =>
   const style = { background: "url(" + ShoppingCart + ") no-repeat 50% 50%" }
 
   return(
-    <div class="card">
+    <div className="card">
       <img
         src={MenuCardImg}
         alt="image"
-        class="card-image"
+        className="card-image"
       />
-      <div class="card-text">
-        <div class="card-heading">
-          <h3 class="card-title card-title-reg">{MenuCardTitle}</h3>
+      <div className="card-text">
+        <div className="card-heading">
+          <h3 className="card-title card-title-reg">{MenuCardTitle}</h3>
         </div>
-        <div class="card-info">
-          <div class="ingredients">{MenuCardInfo}</div>
+        <div className="card-info">
+          <div className="ingredients">{MenuCardInfo}</div>
         </div>
-        <div class="card-buttons">
-          <button class="button button-primary button-add-cart">
-            <span class="button-card-text">В корзину</span>
-            <span class="button-cart-svg" style={style}></span>
+        <div className="card-buttons">
+          <button className="button button-primary button-add-cart">
+            <span className="button-card-text">В корзину</span>
+            <span className="button-cart-svg" style={style}></span>
           </button>
-          <strong class="card-price-bold">{MenuCardPrice}</strong>
+          <strong className="card-price-bold">{MenuCardPrice}</strong>
         </div>
       </div>
     </div>
