@@ -2,6 +2,7 @@ import React from 'react'
 
 import Header from './HeaderBlock/Header'
 import MainBlock from './MainBlock/MainBlock'
+import FooterBlock from './FooterBlock/FooterBlock'
 
 const LayoutBlock = () => {
   return(
@@ -12,7 +13,7 @@ const LayoutBlock = () => {
       <main className="main">
         <MainBlock />
       </main>
-      <footer className="footer">footer</footer>
+      <FooterBlock />
       <div className="modal modal-cart">modal modal-cart</div>
       <div className="modal-auth">modal-auth</div>
     </>
