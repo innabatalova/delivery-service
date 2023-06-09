@@ -1,7 +1,7 @@
 import Logo from "../img/icon/logo.svg";
 import pizzaPlus from "../img/pizza-plus/preview.jpg";
-import tanukiPlus from "../img/tanuki/preview.jpg";
-import foodBand from "../img/food-band/preview.jpg";
+import tanukiPlus from "../img/tanuki/tanuki-preview.jpg";
+import foodBand from "../img/food-band/food-band-preview.jpg";
 
 const headerLogoIcon = document.querySelector(".logo__img");
 headerLogoIcon.src = Logo;
