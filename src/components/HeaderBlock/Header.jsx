@@ -8,6 +8,7 @@ import ShoppingCart from "../../img/icon/shopping-cart.svg";
 import Logout from "../../img/icon/logout.svg";
 
 import Auth from '../../controllers/auth'
+import Basket from '../../controllers/basket'
 
 const Header = () => {
 
@@ -34,7 +35,7 @@ const Header = () => {
           classNameValue='button-auth-svg' classNameText='button-text' TextBtn='Войти' HeaderBtnIcon={User} onClickBtn={Auth.openAuth} />
 
         <HeaderButton id="cart-button" classNameBtn='button button-cart'
-          classNameValue='button-cart-svg' classNameText='button-text' TextBtn='Корзина' HeaderBtnIcon={ShoppingCart}/>
+          classNameValue='button-cart-svg' classNameText='button-text' TextBtn='Корзина' HeaderBtnIcon={ShoppingCart} onClickBtn={Basket.openModal}/>
 
         <HeaderButton classNameBtn='button button-primary button-out'
           classNameValue='button-out-svg' classNameText='button-text' TextBtn='Выйти' HeaderBtnIcon={Logout} onClickBtn={Auth.logOut}/>

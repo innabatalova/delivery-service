@@ -2,12 +2,12 @@ import React from 'react'
 
 import IconRating from '../../img/icon/rating.svg';
 
-const CardRestaurant = ({ imgCardProps, cardTitle, cardTag, cardRating, cardPrice, cardCategory }) => {
+const CardRestaurant = ({ imgCardProps, cardTitle, cardTag, cardRating, cardPrice, cardCategory, onClick }) => {
 
   const style = { background: "url(" + IconRating + ") no-repeat 0 7px" }
 
   return(
-    <a href="restaurant.html" class="card card-restaurant">
+    <a onClick={onClick} class="card card-restaurant">
       <img
         alt="image"
         className='card-image'

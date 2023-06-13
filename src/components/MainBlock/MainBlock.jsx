@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import PromoBunner from '../PromoBunner/PromoBunner';
 import CardRestaurant from '../CardRestaurant/CardRestaurant';
@@ -22,6 +23,8 @@ const MainBlock = () => {
   const stylePromoVegetables = { background: "#FFF566 url(" + Vegetables + ") no-repeat top 0 right 0 / 825px" }
   const stylePromoSushi = { background: "#FFF1F0 url(" + Sushi + ") no-repeat top 10px right 15px / 500px" }
 
+  const navigate = useNavigate()
+
   return (
     <div class="container">
 
@@ -33,15 +36,15 @@ const MainBlock = () => {
 
         <PromoBunner promoClass='kebab' stylePromoBG={stylePromoKebab}
           promoTitle={'Шашлыки на майские со скидкой 35%'}
-          promoText='Закажите шашлыки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD'/>
+          promoText='Закажите шашлыки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD' />
 
         <PromoBunner promoClass='vegetables' stylePromoBG={stylePromoVegetables}
           promoTitle={'Скидка 20% на всю еду по промокоду LOVE.JS'}
-          promoText='Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду'/>
+          promoText='Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду' />
 
         <PromoBunner promoClass='sushi' stylePromoBG={stylePromoSushi}
           promoTitle={'Сеты со скидкой до 30% в ресторанах'}
-          promoText='Скидки на сеты до 30 мая по промокоду DADADA'/>
+          promoText='Скидки на сеты до 30 мая по промокоду DADADA' />
       </section>
 
       <section className="restaurants">
@@ -59,23 +62,23 @@ const MainBlock = () => {
 
         <div className="cards cards-restaurants">
 
-          <CardRestaurant imgCardProps={PizzaPreview} cardTitle='Пицца плюс' cardTag='50 мин' 
-            cardRating='4.5' cardPrice='От 900 ₽' cardCategory='Пицца'/>
+          <CardRestaurant imgCardProps={PizzaPreview} cardTitle='Пицца плюс' cardTag='50 мин'
+            cardRating='4.5' cardPrice='От 900 ₽' cardCategory='Пицца' onClick={() => navigate('pizza-plus', { replace: false })}/>
 
-          <CardRestaurant imgCardProps={TanukiPreview} cardTitle='Тануки' cardTag='60 мин'
-            cardRating='4.3' cardPrice='От 1 200 ₽' cardCategory='Суши, роллы' />
+          <CardRestaurant  imgCardProps={TanukiPreview} cardTitle='Тануки' cardTag='60 мин'
+            cardRating='4.3' cardPrice='От 1 200 ₽' cardCategory='Суши, роллы' onClick={() => navigate('taniki', { replace: false })}/>
 
           <CardRestaurant imgCardProps={FoodBandPreview} cardTitle='FoodBand' cardTag='40 мин'
-            cardRating='3.5' cardPrice='От 450 ₽' cardCategory='Пицца' />
+            cardRating='3.5' cardPrice='От 450 ₽' cardCategory='Пицца' onClick={() => navigate('food-band', { replace: false })}/>
 
           <CardRestaurant imgCardProps={PalkiSkalkiPreview} cardTitle='Палки скалки' cardTag='55 мин'
-            cardRating='4.1' cardPrice='От 500 ₽' cardCategory='Пицца' />
+            cardRating='4.1' cardPrice='От 500 ₽' cardCategory='Пицца' onClick={() => navigate('palki-skalki', { replace: false })}/>
 
           <CardRestaurant imgCardProps={GusiLebediPreview} cardTitle='Гуси Лебеди' cardTag='75 мин'
-            cardRating='5.0' cardPrice='От  1 000 ₽' cardCategory='Русская кухня' />
+            cardRating='5.0' cardPrice='От  1 000 ₽' cardCategory='Русская кухня' onClick={() => navigate('gusi-lebedi', { replace: false })}/>
 
           <CardRestaurant imgCardProps={PizzaBurgerPreview} cardTitle='PizzaBurger' cardTag='45 мин'
-            cardRating='4.5' cardPrice='От 700 ₽' cardCategory='Пицца' />
+            cardRating='4.5' cardPrice='От 700 ₽' cardCategory='Пицца' onClick={() => navigate('pizza-burger', { replace: false })}/>
 
         </div>
       </section>

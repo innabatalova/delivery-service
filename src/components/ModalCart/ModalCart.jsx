@@ -2,6 +2,8 @@ import React from 'react'
 
 import FoodRow from '../FoodRow/FoodRow';
 
+import Basket from '../../controllers/basket'
+
 const ModalCart = () => {
   return(
     <div className="modal modal-cart">
@@ -10,7 +12,7 @@ const ModalCart = () => {
 
         <div className="modal-header">
           <h3 className="modal-title">Корзина</h3>
-          <button className="close">&times;</button>
+          <button className="modal-close" onClick={Basket.closeModal}>&times;</button>
         </div>
 
         <div className="modal-body">
