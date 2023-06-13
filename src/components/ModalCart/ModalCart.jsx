@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {  useContext } from 'react'
 
 import FoodRow from '../FoodRow/FoodRow';
 
 import Basket from '../../controllers/basket'
+import BasketContext from '../../context'
 
 const ModalCart = () => {
-  return(
+
+  const [context, setContext] = useContext(BasketContext);
+  const newBasketList = context.map((item) => <FoodRow foodName={item.title} foodPrice={item.price} foodCounter={item.count} />);
+
+  return (
+    <BasketContext.Provider value={[context, setContext]}>
     <div className="modal modal-cart">
 
       <div className="modal-dialog">
@@ -16,23 +22,19 @@ const ModalCart = () => {
         </div>
 
         <div className="modal-body">
-          <FoodRow foodName='Ролл угорь стандарт' foodPrice='250 ₽' foodCounter='1'/>
-          <FoodRow foodName='Ролл Калифорния' foodPrice='50 ₽' foodCounter='2' />
-          <FoodRow foodName='Пицца Пепперони' foodPrice='530 ₽' foodCounter='1' />
-          <FoodRow foodName='Ролл Темпура Эби' foodPrice='260 ₽' foodCounter='1' />
-          <FoodRow foodName='Пицца Мини' foodPrice='120 ₽' foodCounter='3' />
-          <FoodRow foodName='Борщ со сметаной' foodPrice='220 ₽' foodCounter='1' />
+          {newBasketList}
         </div>
 
         <div className="modal-footer">
           <span className="modal-pricetag"></span>
           <div className="footer-buttons">
-            <button className="button button-primary">Оформить заказ</button>
-            <button className="button clear-cart">Отмена</button>
+            <button className="button button-primary" onClick={Basket.addOrder}>Оформить заказ</button>
+            <button className="button clear-cart" onClick={Basket.clearBasket}>Отмена</button>
           </div>
         </div>
       </div>
     </div>
+    </BasketContext.Provider>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './HeaderBlock/Header'
@@ -9,10 +9,16 @@ import ModalCart from './ModalCart/ModalCart'
 import ModalAuth from './ModalAuth/ModalAuth'
 
 
+import BasketContext from '../context'
+
 const LayoutBlock = () => {
+
+  const defoultContext = useContext(BasketContext);
+  const [context, setContext] = useState(defoultContext);
 
   return (
     <BrowserRouter>
+      <BasketContext.Provider value={[context, setContext]}>
       <div className="container">
         <Header />
       </div>
@@ -20,7 +26,7 @@ const LayoutBlock = () => {
         <Routes>
           <Route path="*" element={<MainBlock />} />
           <Route path="pizza-plus" element={<MenuBlock restaurantTitle='Пицца Плюс' 
-          restaurantRating='4.5' restaurantPrice='От 900 ₽' restaurantCategory='Пицца' />} />
+              restaurantRating='4.5' restaurantPrice='От 900 ₽' restaurantCategory='Пицца' />} />
           <Route path="taniki" element={<MenuBlock restaurantTitle='Тануки'
             restaurantRating='4.3' restaurantPrice='От 1 200 ₽' restaurantCategory='Суши' />} />
           <Route path="food-band" element={<MenuBlock restaurantTitle='Фуд Банд'
@@ -36,6 +42,7 @@ const LayoutBlock = () => {
       <FooterBlock />
       <ModalCart />
       <ModalAuth />
+      </BasketContext.Provider>
     </BrowserRouter>
   )
 }
