@@ -1,38 +1,83 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+
+import BasketContext from '../../context'
 
 const FoodRow = ({ foodName, foodPrice, foodCounter }) => {
-  
-  const [count, setCount] = useState(foodCounter);
-  
+
+  const [context, setContext] = useContext(BasketContext);
+
   const incrementCount = () => {
-    setCount(count + 1)
-    const cartArray = JSON.parse(localStorage.getItem("basket"));
-    cartArray.map((item) => {
+    const getDataCart = JSON.parse(localStorage.getItem("basket"));
+    getDataCart.map((item) => {
       if (item.title == foodName) {
         item.count++
       }
     });
-    localStorage.setItem("basket", JSON.stringify(cartArray));
+    localStorage.setItem("basket", JSON.stringify(getDataCart));
+
+    const modalCart = document.querySelector(".modal-cart");
+    const modalPricetag = modalCart.querySelector(".modal-pricetag");
+    const resultsPrice = getDataCart.map(function (num) {
+      return Number(num.price) * num.count;
+    });
+
+    const summPrice = resultsPrice.reduce(function (sum, current) {
+      return sum + current;
+    });
+
+    modalPricetag.innerHTML = `
+          <span class="food-name">${summPrice} ₽</span>
+      `;
+    setContext(getDataCart)
+    localStorage.setItem("basket", JSON.stringify(getDataCart));
   }
 
   const decrementCount = () => {
-    count > 0 ? setCount(count - 1) : setCount(0)
-    const cartArray = JSON.parse(localStorage.getItem("basket"));
-    cartArray.map((item) => {
+    const getDataCart = JSON.parse(localStorage.getItem("basket"));
+    getDataCart.map((item) => {
       if (item.title == foodName) {
         item.count = item.count > 0 ? item.count - 1 : 0
       }
     });
-    localStorage.setItem("basket", JSON.stringify(cartArray));
+    getDataCart.map((item) => {
+      if (item.count < 1) {
+        getDataCart.splice(getDataCart.indexOf(item), 1)
+      }
+    });
+
+    if (getDataCart.length !== 0){
+      const modalCart = document.querySelector(".modal-cart");
+      modalCart.style.display = "flex";
+      const modalPricetag = modalCart.querySelector(".modal-pricetag");
+      const resultsPrice = getDataCart.map(function (num) {
+        return Number(num.price) * num.count;
+      });
+      const summPrice = resultsPrice.reduce(function (sum, current) {
+        return sum + current;
+      });
+      modalPricetag.innerHTML = `
+          <span class="food-name">${summPrice} ₽</span>
+      `;
+    } else {
+      const modalCart = document.querySelector(".modal-cart");
+      modalCart.style.display = "none";
+      setTimeout(() => { 
+        alert('Нет ни одного товара в корзине!')
+        localStorage.removeItem("basket");
+      }, 0)
+    }
+
+    setContext(getDataCart)
+    localStorage.setItem("basket", JSON.stringify(getDataCart));
   }
 
-  return(
+  return (
     <div className="food-row">
       <span className="food-name">{foodName}</span>
       <strong className="food-price">{foodPrice}</strong>
       <div className="food-counter">
         <button className="counter-button" onClick={decrementCount}>-</button>
-        <span className="counter">{count}</span>
+        <span className="counter">{foodCounter}</span>
         <button className="counter-button" onClick={incrementCount}>+</button>
       </div>
     </div>

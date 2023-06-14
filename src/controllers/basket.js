@@ -1,21 +1,22 @@
 class Basket {
 
   openModal = () => {
-    if (localStorage.getItem('basket') !== null) {
-      const getDataCart = JSON.parse(localStorage.getItem("basket"));
+    const getDataCart = JSON.parse(localStorage.getItem("basket"));
+    
+    if (getDataCart !== null) {
+        const getDataCart = JSON.parse(localStorage.getItem("basket"));
+        const modalCart = document.querySelector(".modal-cart");
+        modalCart.style.display = "flex";
+        const modalPricetag = modalCart.querySelector(".modal-pricetag");
+        const resultsPrice = getDataCart.map(function (num) {
+          return Number(num.price) * num.count;
+        });
 
-      const modalCart = document.querySelector(".modal-cart");
-      modalCart.style.display = "flex";
-      const modalPricetag = modalCart.querySelector(".modal-pricetag");
-      const resultsPrice = getDataCart.map(function (num) {
-        return Number(num.price) * num.count;
-      });
+        const summPrice = resultsPrice.reduce(function (sum, current) {
+          return sum + current;
+        });
 
-      const summPrice = resultsPrice.reduce(function (sum, current) {
-        return sum + current;
-      });
-
-      modalPricetag.innerHTML = `
+        modalPricetag.innerHTML = `
           <span class="food-name">${summPrice} ₽</span>
       `;
     } else {

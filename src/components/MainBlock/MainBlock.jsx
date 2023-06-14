@@ -9,12 +9,7 @@ import Kebab from '../../img/promo/kebab.png';
 import Vegetables from '../../img/promo/vegetables.png';
 import Sushi from '../../img/promo/sushi.png';
 
-import PizzaPreview from '../../img/pizza-plus/preview.jpg';
-import TanukiPreview from '../../img/tanuki/tanuki.jpg';
-import FoodBandPreview from '../../img/food-band/food-band-preview.jpg';
-import PalkiSkalkiPreview from '../../img/palki-skalki/palki-skalki-preview.jpg';
-import GusiLebediPreview from '../../img/gusi-lebedi/gusi-lebedi-preview.jpg';
-import PizzaBurgerPreview from '../../img/pizza-burger/pizza-burger-preview.jpg';
+import PartnersDB from '../../db/partners';
 
 const MainBlock = () => {
 
@@ -24,6 +19,10 @@ const MainBlock = () => {
   const stylePromoSushi = { background: "#FFF1F0 url(" + Sushi + ") no-repeat top 10px right 15px / 500px" }
 
   const navigate = useNavigate()
+
+  const сardRestaurantList = PartnersDB.map((item) => 
+    <CardRestaurant imgCardProps={item.image} cardTitle={item.name} cardTag={item.time_of_delivery + ` мин`}
+      cardRating={item.stars} cardPrice={`От ` + item.price + ` ₽`} cardCategory={item.kitchen} onClick={() => navigate(item.navigate)} />);
 
   return (
     <div class="container">
@@ -61,25 +60,7 @@ const MainBlock = () => {
         </div>
 
         <div className="cards cards-restaurants">
-
-          <CardRestaurant imgCardProps={PizzaPreview} cardTitle='Пицца плюс' cardTag='50 мин'
-            cardRating='4.5' cardPrice='От 900 ₽' cardCategory='Пицца' onClick={() => navigate('pizza-plus', { replace: false })}/>
-
-          <CardRestaurant  imgCardProps={TanukiPreview} cardTitle='Тануки' cardTag='60 мин'
-            cardRating='4.3' cardPrice='От 1 200 ₽' cardCategory='Суши, роллы' onClick={() => navigate('taniki', { replace: false })}/>
-
-          <CardRestaurant imgCardProps={FoodBandPreview} cardTitle='FoodBand' cardTag='40 мин'
-            cardRating='3.5' cardPrice='От 450 ₽' cardCategory='Пицца' onClick={() => navigate('food-band', { replace: false })}/>
-
-          <CardRestaurant imgCardProps={PalkiSkalkiPreview} cardTitle='Палки скалки' cardTag='55 мин'
-            cardRating='4.1' cardPrice='От 500 ₽' cardCategory='Пицца' onClick={() => navigate('palki-skalki', { replace: false })}/>
-
-          <CardRestaurant imgCardProps={GusiLebediPreview} cardTitle='Гуси Лебеди' cardTag='75 мин'
-            cardRating='5.0' cardPrice='От  1 000 ₽' cardCategory='Русская кухня' onClick={() => navigate('gusi-lebedi', { replace: false })}/>
-
-          <CardRestaurant imgCardProps={PizzaBurgerPreview} cardTitle='PizzaBurger' cardTag='45 мин'
-            cardRating='4.5' cardPrice='От 700 ₽' cardCategory='Пицца' onClick={() => navigate('pizza-burger', { replace: false })}/>
-
+          {сardRestaurantList}
         </div>
       </section>
 
